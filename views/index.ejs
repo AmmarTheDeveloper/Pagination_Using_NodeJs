@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination using node js</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h1 class="main-heading">Pagination using node js</h1>
+    <div class="container">
+
+        <% for(i=pagination.start - 1 ;i<=pagination.end - 1;i++){ %>
+            <!-- printing data on the  basis of start and end i have take minus on start and end both because i am printing data on the  basis of i becasue if start = 1 then 1 index value is printed from data but it is a problem because my data is in array and index starts from 0-->
+            <div class="card">
+                <div class="image">
+                    <div class="image">
+                        <img src="./images/user-icon.png" alt="">
+                    </div>
+                    <div class="content">
+                        <p class="heading">
+                            <b>
+                                No : </b>
+                            <%= data[i].srNo %>
+                        </p>
+                        <h1 class="heading">
+                            <%= data[i].name %>
+                        </h1>
+                        <h3 class="sub-heading">
+                            <%= data[i].status %>
+                        </h3>
+
+                        <p>
+
+                            <%= data[i].content %>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                <!-- <div class="card">
+            <div class="image">
+                <div class="image">
+                    <img src="./images/user-icon.png" alt="">
+                </div>
+                <div class="content">
+                    <h1 class="heading">
+                        Ammar Ansari
+                    </h1>
+                    <h3 class="sub-heading">
+                        Software Developer
+                    </h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo, cumque.
+
+                    </p>
+                </div>
+            </div>
+        </div> -->
+
+
+    </div>
+    <div class="pagination-container">
+
+        <div class="pagination">
+            <% if(page> 1){ %> <!-- checking if page is greater than one then it have previous page-->
+                <a href="/?page=<%= page-1 %>" class="btn prev-next">Prev</a>
+                <% } %>
+                    <% for(i=1;i<=NoOfPages;i++){ %> <!-- printing no of pages button -->
+                        <% if(i==page){ %>
+                            <a href="/?page=<%= i %>" class="btn active">
+                                <%= i %>
+                            </a>
+                            <% }else { %>
+
+                                <a href="/?page=<%= i %>" class="btn">
+                                    <%= i %>
+                                </a>
+
+                                <% } %>
+                                    <% } %>
+                                        <button class="btn no-hover">
+                                            <%= page %> of <%= NoOfPages %><!-- displaying no of pages -->
+                                        </button>
+                                        <% if(page < NoOfPages){ %>
+                                            <!-- checking if page is less than no of pages then it have next page-->
+
+                                            <a href="/?page=<%= page + 1 %>" class="btn prev-next">Next</a>
+                                            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>
