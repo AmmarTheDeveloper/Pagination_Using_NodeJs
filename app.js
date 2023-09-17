@@ -3,7 +3,7 @@ const app = express()
 const ejs = require( 'ejs' )
 const fs = require( 'fs' )
 
-app.use( express.static( __dirname + '/public' ) )
+app.use( express.static( __dirname + '/public/' ) )
 app.set( 'view engine', 'ejs' )
 app.set( 'views', __dirname + '/views' )
 
