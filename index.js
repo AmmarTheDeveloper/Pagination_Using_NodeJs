@@ -2,6 +2,7 @@ const express = require( 'express' )
 const app = express()
 const ejs = require( 'ejs' )
 const fs = require( 'fs' )
+let JsonFilePath = __dirname + '/data.json'
 
 app.use( express.static( __dirname + '/public/' ) )
 app.set( 'view engine', 'ejs' )
@@ -9,7 +10,7 @@ app.set( 'views', __dirname + '/views' )
 
 app.get( '', ( req, res ) => {
 
-    const data = JSON.parse( fs.readFileSync( './data.json', 'utf-8' ) )
+    const data = JSON.parse( fs.readFileSync( JsonFilePath, 'utf-8' ) )
     let page = Math.floor( req.query.page ) || 1 //getting page no for pagination
     let limit = 10//limit of data to be display on frontend
     page = ( page < 0 ) ? 1 : page//this is for testers if anyone is checking my website if it entered negative numbers then page value will be 1 else it's value is correct
