@@ -12,6 +12,8 @@ app.get( '', ( req, res ) => {
     const data = JSON.parse( fs.readFileSync( './data.json', 'utf-8' ) )
     let page = Math.floor( req.query.page ) || 1 //getting page no for pagination
     let limit = 10//limit of data to be display on frontend
+    page = ( page < 0 ) ? 1 : page//this is for testers if anyone is checking my website if it entered negative numbers then page value will be 1 else it's value is correct
+
     let start = ( page > 1 ) ? ( page * limit ) - 9 : page //starting point of page will be 1 if page is 1 else it will be ( page * limit ) - 9 means if page is 2 then (2 * 10) - 9 that is 11
     let end = ( start == 1 ) ? 10 : start + 9//setting end of data if my starting point is 1 then it will end on 10 else it will end on start + 9 means if starting point is 11 then end point will be 20
 

@@ -34,8 +34,10 @@ body {
 
 
 .container .card {
+
     flex-grow: 1;
-    max-width: 350px;
+    flex-basis: 350px;
+    max-width: 450px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     border-radius: 5px;
@@ -72,6 +74,7 @@ body {
 .pagination {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
     max-width: 500px;
     margin: 10px auto 20px auto;
